@@ -14,12 +14,13 @@ router.get('/', function(req, res, next) {
 
 /* GET SINGLE BOOK BY ID */
 router.get('/:id', function(req, res, next) {
+
   var query = Store.find({});
-  query.where('Country', 'Canada');
-  //query.limit(5);
+  query.where({ 'updated_at': { $gte : new Date(2004, 7, 14) }  })
   query.exec(function (err, docs) {
     res.json(docs);
   });
+
 
 });
 
@@ -42,6 +43,22 @@ Second Working Query
 var query = Store.find({});
 query.where('Country', 'Canada');
 //query.limit(5);
+query.exec(function (err, docs) {
+  res.json(docs);
+});
+
+Third Working Query
+
+var query = Store.find({});
+query.where({ 'updated_at': { $gte : new Date(2004, 7, 14) }  })
+query.exec(function (err, docs) {
+  res.json(docs);
+});
+
+Fourth Working Query
+
+var query = Film.find({});
+query.find( { "actors.First name": "PENELOPE", "actors.Last name": "GUINESS" })
 query.exec(function (err, docs) {
   res.json(docs);
 });
