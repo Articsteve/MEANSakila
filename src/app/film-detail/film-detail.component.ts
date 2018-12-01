@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-film-detail',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmDetailComponent implements OnInit {
 
-  constructor() { }
+  film: any[];
+  constructor(private route: ActivatedRoute, private api: ApiService) { }
 
   ngOnInit() {
+    this.getFilmDetails(this.route.snapshot.params['id']);
   }
-
+  getFilmDetails(id) {
+  this.api.getFilmDet(id)
+    .subscribe(data => {
+      console.log(data);
+      this.film = data;
+    });
+  }
 }

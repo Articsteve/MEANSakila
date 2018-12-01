@@ -40,4 +40,11 @@ export class ApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+
+  getFilmDet(id: string): Observable<any> {
+  const url = `${apiUrl}/${id}`;
+  return this.http.get(url, httpOptions).pipe(
+    map(this.extractData),
+    catchError(this.handleError));
+  }
 }

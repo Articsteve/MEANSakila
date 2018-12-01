@@ -27,6 +27,11 @@ const appRoutes: Routes = [
     component: FilmComponent,
     data: { title: 'Film List' }
   },
+  {
+    path: 'film-details/:id',
+    component: FilmDetailComponent,
+    data: { title: 'Film Details' }
+  },
   { path: '',
     redirectTo: '/film',
     pathMatch: 'full'

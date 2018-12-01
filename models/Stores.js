@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var StoreSchema = new mongoose.Schema({
-  _id: ObjectId,
+  _id: String,
   Address: String,
   City: String,
   Country: String,
@@ -12,7 +12,7 @@ var StoreSchema = new mongoose.Schema({
   inventory:{
     film_id: Number,
     store_id: Number,
-    _id: ObjectId,
+    _id: String,
     'last_update':{
       date:{ type: Date, default: Date.now },
       timezone_type: Number,
@@ -27,7 +27,7 @@ var StoreSchema = new mongoose.Schema({
     'Last Name': String,
     staffId: Number,
     Phone: String,
-    _id: ObjectId
+    _id: String,
   },
   updated_at: { type: Date, default: Date.now },
   created_at: { type: Date, default: Date.now }
